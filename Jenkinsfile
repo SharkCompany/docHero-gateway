@@ -1,14 +1,35 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.8.1-adoptopenjdk-11' 
-            args '-v /root/.m2:/root/.m2' 
-        }
+    agent any
+
+    environment {
+        secrect = credentials('github_jenkins')
     }
+
     stages {
-        stage('Build') { 
+        stage('Review') {
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                echo 'Review code'
+            }
+        }
+
+                stage('Unit Test') {
+                    steps {
+                echo 'Review code'
+                echo 'credentials'
+                echo $secrect
+                    }
+                }
+
+        stage('Build') {
+            steps {
+                sh 'cd api-gateway'
+                sh 'sh ./api-gateway/mvnw package'
+            }
+        }
+
+        stage('Deploy to Server') {
+            steps {
+                echo 'Deploying..'
             }
         }
     }
