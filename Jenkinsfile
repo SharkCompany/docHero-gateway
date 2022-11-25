@@ -22,11 +22,12 @@ pipeline {
                     }
                 }
 
-        // stage("Build") {
-        //     steps {
-        //         sh "gradle --refresh-dependencies clean build"
-        //     }
-        // }
+        stage("Build") {
+            steps {
+                sh "cd api-gateway"
+                sh "sh ./api-gateway/mvnw package"
+            }
+        }
 
         // stage("Build Docker image") {
         //     steps {
