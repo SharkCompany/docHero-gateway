@@ -5,6 +5,20 @@ pipeline {
         secrect = credentials('novapo-secret')
     }
 
+        post {
+            always {
+                echo "The end pipeline"
+            }
+
+            success {
+                echo "Pipeline success"
+            }
+
+            failure {
+                echo "Pipeline failed"
+            }
+        }
+
     stages {
         stage('Review') {
             steps {
