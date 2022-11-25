@@ -8,7 +8,7 @@ pipeline {
         post {
             always {
                 echo "The end pipeline"
-                echo "docker -v"
+                sh "docker -v"
             }
 
             success {
