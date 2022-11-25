@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        secrect = credentials('github_jenkins')
+        secrect = credentials('novapo-secret')
     }
 
     stages {
