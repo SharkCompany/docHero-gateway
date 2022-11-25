@@ -7,21 +7,6 @@ pipeline {
     //     jdk "JDK_17"
     // }
 
-    environment {
-        // START PROJECT CONFIG
-        PROJECT_NAME = "backend"
-        PROJECT_PORT = "8080"
-        CONTAINER_NAME = "demo-backend"
-        // END PROJECT CONFIG
-        BUILD_TRIGGER_BY = "${currentBuild.getBuildCauses()[0].shortDescription}"
-        WORKING_DIRECTORY = "/usr/src/app"
-        VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT.take(6)}"
-        IMAGE_WITHOUT_TAG = "huynhtamhao/service-demo-1"
-        IMAGE = "${IMAGE_WITHOUT_TAG}:${VERSION}"
-        IMAGE_LATEST = "${IMAGE_WITHOUT_TAG}:latest"
-        DOCKER_HUB_LOGIN = credentials("docker-hub-account")
-        SERVER_CREDENTIAL_ID = "server-deployment-account"
-    }
 
     stages {
 
