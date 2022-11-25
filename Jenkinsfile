@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     // Setup tools trong Jenkins Configuration
-    tools {
-        gradle "GRADLE_7.5.1"
-        jdk "JDK_17"
-    }
+    // tools {
+    //     gradle "GRADLE_7.5.1"
+    //     jdk "JDK_17"
+    // }
 
     environment {
         // START PROJECT CONFIG
@@ -21,10 +21,6 @@ pipeline {
         IMAGE_LATEST = "${IMAGE_WITHOUT_TAG}:latest"
         DOCKER_HUB_LOGIN = credentials("docker-hub-account")
         SERVER_CREDENTIAL_ID = "server-deployment-account"
-    }
-
-    post {
-        
     }
 
     stages {
