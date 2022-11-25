@@ -16,16 +16,16 @@ pipeline {
                     steps {
                 echo 'Review code'
                 echo 'credentials'
-                echo $secrect
+                sh 'echo $secrect'
                     }
                 }
 
-        stage('Build') {
-            steps {
-                sh 'cd api-gateway'
-                sh 'sh ./api-gateway/mvnw package'
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         sh 'cd api-gateway'
+        //         sh 'sh ./api-gateway/mvnw package'
+        //     }
+        // }
 
         stage('Deploy to Server') {
             steps {
