@@ -30,12 +30,12 @@ jobs:
         
     - name: Maven Build;
       run: 
-        cd eureka-server;
+        cd api-gateway;
         sh mvnw clean -DskipTests=true package;
     
     - name: Build Docker image
       run:
-        cd eureka-server;
+        cd api-gateway;
         docker build . --file Dockerfile --tag phongvanngo/dochero-api-gateway:latest;
         docker tag phongvanngo/dochero-api-gateway:latest phongvanngo/dochero-api-gateway:$version;
         
