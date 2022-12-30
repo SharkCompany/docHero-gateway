@@ -15,7 +15,6 @@ spring:
                 allowedOrigins: '*'
                 allowedMethods: '*'
                 allowedHeaders: '*'
-                allowCredentials: true
 
 eureka:
   client:
