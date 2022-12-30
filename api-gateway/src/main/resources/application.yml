@@ -15,12 +15,29 @@ spring:
                 allowedOrigins: '*'
                 allowedMethods: '*'
                 allowedHeaders: '*'
+      routes:
+        - id: department-service
+          uri: lb://department-service
+          predicates:
+            - Path=/department/**
+        - id: department-revision-service
+          uri: lb://department-revision-service
+          predicates:
+            - Path=/document-revision/**
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/account/**
+        - id: authentication-service
+          uri: lb://authentication-service
+          predicates:
+            - Path=/authentication/**
 
 eureka:
   client:
     service-url:
 #      defaultZone: http://45.119.84.194:40000/eureka
-#      defaultZone: http://103.48.192.223:40000/eureka
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://103.48.192.223:40000/eureka
+#      defaultZone: http://localhost:8761/eureka
   instance:
     preferIpAddress: true
